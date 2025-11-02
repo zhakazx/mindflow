@@ -1,54 +1,88 @@
-# React + TypeScript + Vite
+# Mindflow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual journal application that transforms your thoughts into an interactive bubble canvas. Built with React, TypeScript, and Vite for a modern, responsive experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Visual Thought Management**: Capture and organize thoughts as animated bubbles on an interactive canvas
+- **Tagging System**: Categorize thoughts with custom tags for better organization
+- **Local Storage**: All thoughts are saved locally in your browser
+- **Responsive Design**: Clean, modern interface built with Tailwind CSS
+- **Interactive Canvas**: Click on bubbles to view, edit, or delete thoughts
 
-## Expanding the ESLint configuration
+## Technology Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **State Management**: React hooks with localStorage persistence
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd mindflow
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview the production build
+
+## Usage
+
+1. **Adding Thoughts**: Click the + button in the bottom-right corner to add a new thought
+2. **Viewing Thoughts**: Click on any bubble to view its full content and details
+3. **Organizing**: Use tags to categorize and organize your thoughts
+4. **Deleting**: Remove unwanted thoughts through the view modal
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── AddThoughtModal.tsx
+│   ├── BubbleCanvas.tsx
+│   └── ViewThoughtModal.tsx
+├── hooks/              # Custom React hooks
+│   ├── useCanvasAnimation.ts
+│   └── useLocalStorage.ts
+├── types/              # TypeScript type definitions
+│   └── index.ts
+├── utils/              # Utility functions
+│   └── bubbleUtils.ts
+├── MindflowJournal.tsx # Main application component
+├── main.tsx           # Application entry point
+└── index.css          # Global styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project uses ESLint for code linting and TypeScript for type safety. The codebase follows modern React patterns with functional components and hooks.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
